@@ -1,0 +1,27 @@
+
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>id</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Phone</th>
+  </tr>
+
+<% @orders.each do |order| %>
+  <tr>
+    <td><%= order.date %></td>
+    <td><%= link_to order.item_id, item_path(order.item[:id]) %></td>
+    <td><%= order.name %></td>
+    <td><%= order.item[:price] %></td>
+    <td><%= order.phone %></td>
+
+
+  </tr>
+<% end %>
+</table>
+
+
+<%= link_to 'New Item', new_order_path %>
+

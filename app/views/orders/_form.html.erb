@@ -1,0 +1,39 @@
+<h2>Форма заказа:</h2>
+
+<%= form_for(@order) do |f| %>
+
+  <%= f.error_messages %>
+
+  <div class="field">
+    <p>Имя:</p>
+    <%= f.text_field :name %>
+
+    <p>Телефон:</p>
+    <%= f.telephone_field :phone %>
+
+    <p>Дата доставки:</p>
+    <%= f.date_select :date %>
+
+    <p>Email:</p>
+    <%= f.email_field :email %>
+
+    <p>Имя получателя:</p>
+    <%= f.text_field :recievername %>
+
+    <p>Телефон получателя:</p>
+    <%= f.text_field :recieverphone %>
+
+    <p>Адрес получателя:</p>
+    <%= f.text_field :adress %>
+
+    <p>Текст открытки:</p>
+    <%= f.text_area :text %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+
+<% end %>
+

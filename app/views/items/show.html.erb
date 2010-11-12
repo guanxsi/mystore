@@ -1,0 +1,70 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @item.title %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @item.price %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @item.description %>
+</p>
+
+<p>
+  <b>Photo:</b>
+  <%= image_tag(@item.photo, :size => "100x100") %>
+</p>
+
+
+
+<h2>Форма заказа:</h2>
+
+<%= form_for(@order) do |f| %>
+
+  <%= f.error_messages %>
+
+  <div class="field">
+
+    <%= hidden_field_tag :item_id, @item.id %>
+
+    <p>Имя:</p>
+    <%= f.text_field :name %>
+
+    <p>Телефон:</p>
+    <%= f.telephone_field :phone %>
+
+    <p>Дата доставки:</p>
+    <%= f.date_select :date %>
+
+    <p>Email:</p>
+    <%= f.email_field :email %>
+
+    <p>Имя получателя:</p>
+    <%= f.text_field :recievername %>
+
+    <p>Телефон получателя:</p>
+    <%= f.text_field :recieverphone %>
+
+    <p>Адрес получателя:</p>
+    <%= f.text_field :adress %>
+
+    <p>Текст открытки:</p>
+    <%= f.text_area :text %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+
+<% end %>
+
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>
+
